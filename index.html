@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>I Love You Dad ❤️</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins', sans-serif;
+}
+
+body{
+    height:100vh;
+    overflow:hidden;
+    background:linear-gradient(-45deg,#0f2027,#203a43,#2c5364,#1d4350);
+    background-size:400% 400%;
+    animation:bgMove 12s ease infinite;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+@keyframes bgMove{
+    0%{background-position:0% 50%;}
+    50%{background-position:100% 50%;}
+    100%{background-position:0% 50%;}
+}
+
+.card{
+    width:85%;
+    max-width:850px;
+    background:rgba(255,255,255,0.12);
+    backdrop-filter:blur(12px);
+    border-radius:25px;
+    padding:40px;
+    text-align:center;
+    color:white;
+    box-shadow:0 0 30px rgba(255,255,255,.2);
+    animation:appear 2s ease;
+}
+
+@keyframes appear{
+    from{
+        opacity:0;
+        transform:translateY(50px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+h1{
+    font-size:3rem;
+    margin-bottom:20px;
+    animation:glow 2s infinite alternate;
+}
+
+@keyframes glow{
+    from{ text-shadow:0 0 10px #fff; }
+    to{ text-shadow:0 0 30px #ff4d6d; }
+}
+
+#message{
+    font-size:1.3rem;
+    line-height:1.8;
+    min-height:280px;
+    white-space:pre-wrap;
+}
+
+.heart{
+    position:absolute;
+    color:#ff4d6d;
+    animation:float linear infinite;
+}
+
+@keyframes float{
+    from{
+        transform:translateY(100vh) scale(0);
+        opacity:0;
+    }
+    20%{opacity:1;}
+    to{
+        transform:translateY(-100px) scale(1.5);
+        opacity:0;
+    }
+}
+
+.footer{
+    margin-top:20px;
+    font-size:1.5rem;
+    color:#ffd700;
+    animation:pulse 1.5s infinite;
+}
+
+@keyframes pulse{
+    0%,100%{transform:scale(1);}
+    50%{transform:scale(1.1);}
+}
+</style>
+</head>
+<body>
+
+<div class="card">
+    <h1>❤️ I Love You Dad ❤️</h1>
+
+    <div id="message"></div>
+
+    <div class="footer">Your Loving Child 💖</div>
+</div>
+
+<script>
+const text = `Dear Dad,
+
+I may not say it often, but I want you to know that I love you with all my heart.
+
+Thank you for every sacrifice you made, every lesson you taught me, and every time you stood beside me when I needed support.
+
+You are my hero, my guide, and my biggest inspiration.
+
+Your hard work and love have given me strength, confidence, and hope.
+
+I am proud to be your child.
+
+No matter how old I become, I will always look up to you.
+
+Thank you for everything, Dad.
+
+I Love You ❤️`;
+
+let i = 0;
+const speed = 40;
+
+function typeWriter() {
+    if (i < text.length) {
+        document.getElementById("message").innerHTML += text.charAt(i);
+        i++;
+        setTimeout(typeWriter, speed);
+    }
+}
+
+typeWriter();
+
+for(let i=0;i<40;i++){
+    const heart=document.createElement("div");
+    heart.className="heart";
+    heart.innerHTML="❤";
+    heart.style.left=Math.random()*100+"vw";
+    heart.style.fontSize=(15+Math.random()*35)+"px";
+    heart.style.animationDuration=(5+Math.random()*6)+"s";
+    heart.style.animationDelay=Math.random()*5+"s";
+    document.body.appendChild(heart);
+}
+</script>
+
+</body>
+</html>
